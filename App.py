@@ -47,7 +47,7 @@ budget = st.slider(
 #User chooses food category
 category = st.selectbox(
   "Food Category",
-  ["All“，"Rice","Noodles","Rice","Others"]
+  ["All“,"Rice","Noodles","Rice","Others"]
 )
 
 #User searches for food
@@ -70,7 +70,7 @@ if search:
    results = results[
       results["food"].str.contains(
           search,
-          cass = False,
+          case = False,
           regex = False
       )
     ]
@@ -87,7 +87,7 @@ if results.empty:
 else:
    for _,meal in results.iterrows():
        with st.container(border=True):
-           st.subheader{
+           st.subheader(
               f"{meal['food']} - RM{meal['price']:2f}"
               )
               st.write(meal["vendor"])
